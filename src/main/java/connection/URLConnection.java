@@ -10,7 +10,9 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class URLConnection {
 
-    private final String USER = "";
+    private final String origin = ""; // ????
+    private final String date = "";
+    private final String flightID = "";
 
     public static void main(String[] args) throws Exception {
 
@@ -25,7 +27,7 @@ public class URLConnection {
     // Send an HTTP GET request to momondo.com to get the search result.
     private void sendGet() throws Exception {
 
-        String url = "http://www.momondo.com";
+        String url = "http://airline-plaul.rhcloud.com/#/links"; // url for Lars dummyAirline
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -33,12 +35,14 @@ public class URLConnection {
         // optional default is GET
         con.setRequestMethod("GET");
 
-        //add request header
-        con.setRequestProperty("User", USER);
+        //add request header, @PATH in REST
+        con.setRequestProperty("origin", origin);
+        con.setRequestProperty("date", date);
 
-        int responseCode = con.getResponseCode();
+        String responseMessage = con.getResponseMessage(); 
+        // was con.getResponseCode before
         System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + responseCode);
+        System.out.println("Response message : " + responseMessage);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -55,17 +59,17 @@ public class URLConnection {
 
     }
 
-    // Send an HTTP POST request to momondo.com search form to check the flight detail
+    // Send an HTTP POST request to Lars dummy airline search form to check the flight detail
     private void sendPost() throws Exception {
 
-        String url = "http://www.momondo.com";
+        String url = "http://airline-plaul.rhcloud.com/#/links"; //Lars dummy airline
         URL obj = new URL(url);
         HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
         //add reuqest header
         con.setRequestMethod("POST");
-        con.setRequestProperty("User", USER);
-        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+        con.setRequestProperty("flightID", flightID);
+        //con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
         String urlParameters = ""; // ????????????
 
@@ -76,10 +80,10 @@ public class URLConnection {
         wr.flush();
         wr.close();
 
-        int responseCode = con.getResponseCode();
+        String responseMessage = con.getResponseMessage();
         System.out.println("\nSending 'POST' request to URL : " + url);
         System.out.println("Post parameters : " + urlParameters);
-        System.out.println("Response Code : " + responseCode);
+        System.out.println("Response message : " + responseMessage);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
