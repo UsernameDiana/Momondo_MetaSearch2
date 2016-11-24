@@ -3,8 +3,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import facades.ISearch;
-import facades.SearchFacade;
+import facades.SearchFlightFacade;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -14,26 +13,28 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import facades.ISearchFlight;
+import java.util.List;
 
 @Path("flights")
-public class SearchResource {
+public class SearchFlightResource {
 
-    static ISearch facade = new SearchFacade();
+    static ISearchFlight facade = new SearchFlightFacade();
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
     
     @Context
     private UriInfo context;
 
 
-    public SearchResource() {
+    public SearchFlightResource() {
     }
     
     @GET
     @Path("/{origin}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getWithOriginDate() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public String getWithOriginDate(@PathParam("origin") String origin, @PathParam("date") String date) {
+        List<Flights> f = facade.getWithOriginDate(origin, date);
+        return gson.toJson(f);
     }
 
 //    @GET
@@ -45,7 +46,7 @@ public class SearchResource {
 //    }
 //    
 //    @GET
-//    @Path("/{origin}/{destination}")
+//    @Path("/{origin}/{destination}/{tickets}")
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public String getWithTwoParam() {
 //        //TODO return proper representation object

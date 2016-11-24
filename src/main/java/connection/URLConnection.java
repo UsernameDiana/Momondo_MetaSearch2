@@ -69,7 +69,7 @@ public class URLConnection {
         //add reuqest header
         con.setRequestMethod("POST");
         con.setRequestProperty("flightID", flightID);
-        //con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
         String urlParameters = ""; // ????????????
 
