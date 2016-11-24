@@ -1,40 +1,28 @@
 var app = angular.module('MomondoMetaApp', []);
 
-app.controller('SearchCtrl', function($scope){
-    
-    $scope.startDate= {};
-    $scope.endDate = {};
-    
-});
+app.controller('SearchCtrl', function ($scope, $http) {
+    $scope.flight = {};
 
-// from Lars dummy app.js
-// 
-//'use strict';
-//
-//// Declare app level module which depends on views, and components
-//angular.module('myApp', [
-//  'ngRoute',
-//  'ngAnimate',
-//  'ui.bootstrap',
-//  'ui.grid', 'ui.grid.edit',
-//  'myApp.home',
-//  'myApp.links',
-//  'myApp.about',
-//  'myApp.api',
-//  'myApp.airlineUrls',
-//  'myApp.project',
-//  'myApp.about',
-//  'myApp.security'
-//]).
-//        config(['$routeProvider', function ($routeProvider) {
-//            $routeProvider.otherwise({redirectTo: '/home'});
-//          }]).
-//        config(function ($httpProvider) {
-//          $httpProvider.interceptors.push('authInterceptor');
-//        }).
-//        controller("mainCtrl", ["$scope", function ($scope) {
-//            $scope.isHome = true;
-//            $scope.setHome = function (val) {
-//              $scope.isHome = val;
-//            };
-//          }]);
+
+    $scope.search3Param = function ($scope) {
+
+        $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
+            params: {
+                origin: $scope.flight.startPlace,
+                destination: $scope.flight.endPlace,
+                date: $scope.flight.startDate
+                
+            }
+        }).then(function (response, $scope){scope.flight = response;});
+    };
+    
+    $scope.search2Param = function ($scope) {
+
+        $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
+            params: {
+                origin: $scope.flight.startPlace,
+                destination: $scope.flight.endPlace
+            }
+        }).then(function (response, $scope){scope.flight = response;});
+    };
+});
