@@ -10,7 +10,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class URLConnection {
 
-    private final String origin = ""; // ????
+    private final String origin = "";
     private final String date = "";
     private final String flightID = "";
 
