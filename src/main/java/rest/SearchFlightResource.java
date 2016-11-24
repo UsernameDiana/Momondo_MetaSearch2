@@ -2,6 +2,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import connection.URLConnection;
 import facades.SearchFlightFacade;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -21,19 +22,28 @@ public class SearchFlightResource {
 
     static SearchFlightFacade facade = new SearchFlightFacade();
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    
     private static List <String> listOfUrls;
+    URLConnection UrlConn = new URLConnection();
     
     @Context
     private UriInfo context;
 
-    
     @GET
     @Path("/{origin}/{date}/{tickets}")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getWithOriginDate(@PathParam("origin") String origin, @PathParam("date") String date) {
-        for (String url : listOfUrls) {
+    public String getWithOriginDate(@PathParam("origin") String origin, @PathParam("date") String date) 
+    {   
+       
+        // looping through the list of urls. Two items
+        
+        for (String url : listOfUrls) 
+        {
+            //url +=                  // for each of the url's apend the 
             
         }
+        return null;
     }
 
 //    @GET
