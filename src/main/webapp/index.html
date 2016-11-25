@@ -28,7 +28,7 @@
  
 </head>
 
-<body>
+<body ng-app="MomondoMetaApp" ng-controller="SearchCtrl">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -105,7 +105,7 @@
 
 
 
-                        <button class="btn btn-default searchBtn">Search Flights</button>
+                            <button class="btn btn-default searchBtn" ng-click="search3param()">Search Flights</button>
                         
 
                       
@@ -135,7 +135,7 @@
                     <h2> This is where we will show our results in a list format </h2>
                     <div class="clearfix"></div>
                     <ul>
-                        <li>EXAMPLE TEXT</li>
+                        <li ng-repeat="f in flight.flights">EXAMPLE TEXT</li>
                         <li>EXAMPLE TEXT</li>
                         <li>EXAMPLE TEXT</li>
                         <li>EXAMPLE TEXT</li>
