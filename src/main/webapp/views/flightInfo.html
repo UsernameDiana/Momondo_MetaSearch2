@@ -1,12 +1,10 @@
 <div style="margin: 10px;">
     
-  <h2 style="color:darkblue;">{{products}}</h2>
+  <h2 style="color:darkblue;">{{flights}}</h2>
   
-  <h3>A list of all our great books</h3>
-  <ul style="list-style-type: none">
-      
-    <li ng-repeat="fight in flights">
-      <div>{{book.title}} <a href="#/info/{{$index}}">Details</a></div>
+  <ul style="list-style-type: none">  
+    <li ng-repeat="viewFlight in flight">
+      <div>{{viewFlight.destination}} <a href="#/info/{{$index}}">Details</a></div>
     </li>
   </ul>
 </div>
