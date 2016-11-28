@@ -17,11 +17,10 @@ import javax.ws.rs.core.MediaType;
 @Path("search")
 public class SearchFlightResource {
     
-//    static SearchFlightFacade facade = new SearchFlightFacade();
+    //static SearchFlightFacade facade = new SearchFlightFacade();
     //Instance of gson for making JSON out of objects
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    //Create an instance of the GetConnections to gain access to the methods
-    static GetConnections getC = new GetConnections();
+    
     //
     static ISearchFlight flight = new SearchFlightFacade();
     
@@ -34,6 +33,7 @@ public class SearchFlightResource {
      * Retrieves representation of an instance of rest.SearchFlightResource
      * @param origin
      * @param tickets
+     * @param date
      * @return an instance of java.lang.String
      */
     @GET

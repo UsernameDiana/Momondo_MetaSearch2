@@ -7,17 +7,17 @@ public class SearchFlightFacade implements ISearchFlight{
     GetConnections conn = new GetConnections();
 
     public SearchFlightFacade() {
-    }
-    
+        
+    }   
     
     
     @Override
     public String getWithOriginDate(String origin, String date, int tickets) {
         
-        String result = conn.ThreeParameterConnection(origin, date, tickets);
-        return result;
+        return conn.ThreeParameterConnection(origin, date, tickets);
     }
 
+    @Override
     public String getWithAllParam(String origin, String dest, String date, int tickets) {
    return null;
     }
