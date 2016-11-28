@@ -1,8 +1,8 @@
-var app = angular.module('MomondoMetaApp', []);
+var app = angular.module('MomondoMetaApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
-            .when("/home", {
+            .when("/index", {
                 templateUrl: "views/index.html",
                 controller: "SearchCtrl"
             })

@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Search Engine</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/main.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    
+   <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">    
     <!-- AngularJS related -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
@@ -27,6 +21,7 @@
 </head>
 
 <body ng-app="MomondoMetaApp" >
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
@@ -41,18 +36,13 @@
            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li>
-                        <a href="#documentation">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
+                    <li><a href="#index">Home</a></li>
+                    <li> <a href="#documentation">Documentation</a> </li>
+                    <li><a href="#about">About</a></li>
                 </ul>
+                <div ng-view=""></div>
             </div>
-            <!-- /.navbar-collapse -->
+           <!-- /.navbar-collapse -->          
         </div>
         <!-- /.container -->
     </nav>
@@ -63,11 +53,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="intro-message">
-                       
+                    <div class="intro-message">                      
                         <div class="searchBox">  <!--Container for all Search elements !-->
                             <div class="destAndDate"> <!-- Grouping Start and End destination separately !-->
-
                                 <div class="row">
                                     <input type="text" placeholder="Start Destination (ex: HEL)" id="startPlace" class="destination" ng-bind="flight.startPlace">
                                 </div>
@@ -75,7 +63,6 @@
                                     <input type="date" class="dates unstyled" id="startDate" ng-bind="flight.startDate" >
                                     <input type="date" class="dates unstyled" id="endDate" ng-bind="endDate" >
                                 </div>
-
                             </div>
 
                             <div class="destAndDate">
