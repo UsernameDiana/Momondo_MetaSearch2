@@ -1,62 +1,171 @@
 <!DOCTYPE html>
-<html ng-app="MomondoMetaApp">
-    <head>
-        <title>Momondo service</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-              rel="stylesheet" 
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
-              crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-        <script src="js/app.js" type="text/javascript"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
-    </head>
-    <body ng-controller="SearchCtrl">
-        <div class="container">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Search engine</a>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </div>                
-            </nav>
-            <div id="searchBar">
-                <input type="text" placeholder="Start Destination (ex: HEL)" id="startPlace" ng-bind="startPlace">
-                <input type="text" placeholder="End destination (ex: CPH)" id="endPlace" ng-bind="endPlace">
-                <input type="date" id="startDate" ng-bind="startDate">
-                <input type="date" id="endDate" ng-bind="endDate">
+<html lang="en">
 
-                <button id="seachButton">Search</button>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Search Engine</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    
+    <!-- AngularJS related -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+ 
+</head>
+
+<body ng-app="MomondoMetaApp" ng-controller="SearchCtrl">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">Search Engine</a>
             </div>
-            <div class="container">
-                <p>
-                    This is where we will get our search results then in a list
-                    format
-                </p>
-                <ul>
-                <li>
-                    EXAMPLE TEXT
-                </li>
-                <li>
-                    EXAMPLE TEXT
-                </li>
-                <li>
-                    EXAMPLE TEXT
-                </li>
-                <li>
-                    EXAMPLE TEXT
-                </li>
-                <li>
-                    EXAMPLE TEXT
-                </li>
+           
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#documentation">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
                 </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </body>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="home"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        
+                        
+                        <div class="searchBox">  <!--Container for all Search elements !-->
+                        
+                        <div class="destAndDate"> <!-- Grouping Start and End destination separately !-->
+                       
+                        <div class="row">
+                        <input type="text" placeholder="Start Destination (ex: HEL)" id="startPlace" class="destination" ng-bind="flight.startPlace">
+                        </div>
+                        <div class="row">
+                        <input type="date" class="dates unstyled" id="startDate" ng-bind="flight.startDate" >
+                        <input type="date" class="dates unstyled" id="endDate" ng-bind="endDate" >
+                        </div>
+                        
+                       
+
+                        </div>
+
+                        <div class="destAndDate">
+                       
+                        <div class="row">
+                        <input type="text" placeholder="End Destination (ex: CPH)" id="startPlace" class="destination" ng-bind="flight.endPlace">
+                        </div>
+                        <div class="row">
+                        <input type="text" class="passangers" id="startDate" placeholder="Passengers" ng-bind="flight.passengers" >
+                        
+                        </div>
+                        
+                       
+
+                        </div>
+
+
+
+                            <button class="btn btn-default searchBtn" ng-click="search3param()">Search Flights</button>
+                        
+
+                      
+
+                       </div> <!--END SEARCHBOX !-->
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+	<a  name="documentation"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <h2> This is where we will show our results in a list format </h2>
+                    <div class="clearfix"></div>
+                    <ul>
+                        <li ng-repeat="f in flight.flights">EXAMPLE TEXT</li>
+                        <li>EXAMPLE TEXT</li>
+                        <li>EXAMPLE TEXT</li>
+                        <li>EXAMPLE TEXT</li>
+                        <li>EXAMPLE TEXT</li>
+
+                    </ul>
+                   
+                </div>
+                
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+   
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                
+            </div>
+        </div>
+    </footer>
+
+ 
+
+</body>
+
 </html>
