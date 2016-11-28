@@ -74,11 +74,12 @@ public class GetConnections {
         }
     }
     
-    public static void ThreeParameterConnection(String origin, String destination, int tickets) {
+    public static void ThreeParameterConnection(String origin, String date, int tickets) {
     try {
-            
+            String t = Integer.toString(tickets);
             //Connection string for now to lars's airline, final product in list
-            URL url = new URL("http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-30T00:00:00.000Z/1");
+            URL url = new URL("http://airline-plaul.rhcloud.com/api/flightinfo/" 
+                    + origin + "/" + date + "/" + t);
             
             //Creating the connection
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -128,7 +129,7 @@ public class GetConnections {
     }
     
     public static void main(String[] args) {
-     ThreeParameterConnection("CPH", "SXF", 1);   
+     ThreeParameterConnection("CPH", "2017-01-23T00:00:00.000Z", 1);   
      FourParameterConnection();
     }
 
