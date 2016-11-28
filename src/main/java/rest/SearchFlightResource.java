@@ -19,25 +19,29 @@ import java.util.List;
 
 @Path("flights")
 public class SearchFlightResource {
-
+    
     static SearchFlightFacade facade = new SearchFlightFacade();
+    //Instance of gson for making JSON out of objects
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    //Create an instance of the GetConnections to gain access to the methods
     static GetConnections getC = new GetConnections();
     
     @Context
     private UriInfo context;
+    
+    //Get method for the basic query so three parameters
+//    @GET
+//    @Path("/{origin}/{date}/{tickets}")
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String getWithOriginDate(@PathParam("origin") String origin,
+//            @PathParam("date") String date, @PathParam("tickets") int tickets) {        
+//        //Using the rest to only call the method from inside getconnections
+//        getC.GetWithThree(origin, date, tickets);
+//        //returning the result and making it into a json object
+//        return gson.toJson(getC);
+//    }
 
-    @GET
-    @Path("/{origin}/{date}/{tickets}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getWithOriginDate(@PathParam("origin") String origin, 
-            @PathParam("date") String date, @PathParam("tickets") int tickets) 
-    {   
-       getC.GetWithThree(origin, date, tickets);
-       
-        return gson.toJson(getC);
-    }
 //    @GET
 //    @Path("/{origin}/{destination}/{date}/{tickets}")
 //    @Produces(MediaType.APPLICATION_JSON)
@@ -57,7 +61,6 @@ public class SearchFlightResource {
 //    @Consumes(MediaType.APPLICATION_JSON)
 //    public String getFlightInfo(@PathParam("flightId")String flightId){
 //    }
-    
 //    @POST
 //    @Consumes(MediaType.APPLICATION_JSON)
 //    public String makeReservation(String content) {
