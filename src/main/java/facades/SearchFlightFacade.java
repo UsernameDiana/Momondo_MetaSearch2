@@ -1,20 +1,24 @@
 package facades;
 
-public class SearchFlightFacade {
+import connection.GetConnections;
 
-    public String getWithOriginDate(String origin, String date) {
+public class SearchFlightFacade implements ISearchFlight{
+
+    GetConnections conn = new GetConnections();
+    
+    @Override
+    public String getWithOriginDate(String origin, String date, int tickets) {
+        conn.ThreeParameterConnection(origin, date, tickets);
+        
         return null;
     }
 
-//    public String getWithAllParam(String origin, String dest, String date) {
-//   
-//    }
-//
-//    public String getWithTwoParam(String origin, String dest) {
-//      
-//    }
-//
-//    public String getFlightInfo(String flightId) {
-//        
-//     }
+    public String getWithAllParam(String origin, String dest, String date, int tickets) {
+   return null;
+    }
+
+    @Override
+    public String getFlightInfo(String flightId) {
+        return null;
+     }
 }

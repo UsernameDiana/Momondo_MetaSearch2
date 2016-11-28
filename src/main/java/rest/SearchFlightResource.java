@@ -9,13 +9,9 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
-import facades.ISearchFlight;
-import java.net.URL;
-import java.util.List;
 
 @Path("flights")
 public class SearchFlightResource {
@@ -30,19 +26,19 @@ public class SearchFlightResource {
     private UriInfo context;
     
     //Get method for the basic query so three parameters
-//    @GET
-//    @Path("/{origin}/{date}/{tickets}")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public String getWithOriginDate(@PathParam("origin") String origin,
-//            @PathParam("date") String date, @PathParam("tickets") int tickets) {
-//        
-//        //Using the rest to only call the method from inside getconnections
-//        getC.ThreeParameterConnection();
-//        
-//        //returning the result and making it into a json object
-//        return gson.toJson(getC);
-//    }
+    @GET
+    @Path("/{origin}/{date}/{tickets}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getWithOriginDate(@PathParam("origin") String origin,
+            @PathParam("date") String date, @PathParam("tickets") int tickets) {
+        
+        //Using the rest to only call the method from inside getconnections
+        getC.ThreeParameterConnection(origin, date, tickets);
+        
+        //returning the result and making it into a json object
+        return gson.toJson(getC);
+    }
 
 //    @GET
 //    @Path("/{origin}/{destination}/{date}/{tickets}")

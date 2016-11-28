@@ -21,7 +21,8 @@ public class GetConnections {
     public GetConnections() {
     }
 
-    public static void FourParameterConnection() {
+    public String FourParameterConnection() {
+        
     try {
 //            String t = Integer.toString(tickets);
             //Connection string for now to lars's airline, final product in list
@@ -56,25 +57,27 @@ public class GetConnections {
             System.out.println("Output from Server .... \n");
 
             System.out.println("Result for AllParameters: " + response);
-
+            
             //Kill the connection
             conn.disconnect();
-
+            
             //Final return, is a string
             System.out.println("Final thing for allparameters: " + response);
+            return output;
 
         } catch (MalformedURLException e) {
 
             System.out.println("error occured " + e);
+            return "error occured: " + e;
 
         } catch (IOException e) {
 
-            System.out.println("error occured " + e);
+            return "error occured: " + e;
 
         }
     }
     
-    public static void ThreeParameterConnection(String origin, String date, int tickets) {
+    public void ThreeParameterConnection(String origin, String date, int tickets) {
     try {
             String t = Integer.toString(tickets);
             //Connection string for now to lars's airline, final product in list
@@ -128,9 +131,9 @@ public class GetConnections {
         }
     }
     
-    public static void main(String[] args) {
-     ThreeParameterConnection("CPH", "2017-01-23T00:00:00.000Z", 1);   
-     FourParameterConnection();
-    }
+//    public static void main(String[] args) {
+//     ThreeParameterConnection("CPH", "2017-01-23T00:00:00.000Z", 1);   
+//     FourParameterConnection();
+//    }
 
 }
