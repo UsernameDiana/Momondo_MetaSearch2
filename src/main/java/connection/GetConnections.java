@@ -77,7 +77,7 @@ public class GetConnections {
         }
     }
     
-    public void ThreeParameterConnection(String origin, String date, int tickets) {
+    public String ThreeParameterConnection(String origin, String date, int tickets) {
     try {
             String t = Integer.toString(tickets);
             //Connection string for now to lars's airline, final product in list
@@ -119,14 +119,15 @@ public class GetConnections {
 
             //Final return, is a string
             System.out.println("Final thing for threeparameters:" + response);
+            return response.toString();
 
         } catch (MalformedURLException e) {
 
-            System.out.println("error occured " + e);
+            return "error occured " + e;
 
         } catch (IOException e) {
 
-            System.out.println("error occured " + e);
+            return "error occured " + e;
 
         }
     }
