@@ -3,28 +3,21 @@ var app = angular.module('MomondoMetaApp', []);
 app.config(function ($routeProvider) {
     $routeProvider
             .when("/home", {
-                templateUrl: "views/home.html",
-                controller: "HomeController"
+                templateUrl: "views/index.html",
+                controller: "SearchCtrl"
             })
-
             .when("/documentation", {
                 templateUrl: "views/documentation.html",
                 controller: "DocController"
             })
-
             .when("/about", {
                 templateUrl: "views/about.html",
                 controller: "AboutController"
-            })
-
+            }) 
             .otherwise({
                 redirectTo: "/home"
             })
 });
-
-app.controller('HomeController', function ($scope) {
-    $scope.home = "Home view";
-})
 
 app.controller('DocController', function ($scope) {
     $scope.documentation = "Documentation view";
@@ -36,7 +29,6 @@ app.controller('AboutController', function ($scope) {
 
 app.controller('SearchCtrl', function ($scope, $http) {
     $scope.flight = {};
-
 
     $scope.search3Param = function ($scope) {
 

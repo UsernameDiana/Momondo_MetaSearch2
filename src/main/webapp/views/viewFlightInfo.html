@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div style="margin: 10px;">
+    
+  <h2 style="color:darkblue;">{{products}}</h2>
+  
+  <h3>A list of all our great books</h3>
+  <ul style="list-style-type: none">
+      
+    <li ng-repeat="fight in flights">
+      <div>{{book.title}} <a href="#/info/{{$index}}">Details</a></div>
+    </li>
+  </ul>
+</div>
