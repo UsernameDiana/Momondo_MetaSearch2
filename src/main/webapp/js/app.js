@@ -1,5 +1,39 @@
 var app = angular.module('MomondoMetaApp', []);
 
+app.config(function ($routeProvider) {
+    $routeProvider
+            .when("/home", {
+                templateUrl: "views/home.html",
+                controller: "HomeController"
+            })
+
+            .when("/documentation", {
+                templateUrl: "views/documentation.html",
+                controller: "DocController"
+            })
+
+            .when("/about", {
+                templateUrl: "views/about.html",
+                controller: "AboutController"
+            })
+
+            .otherwise({
+                redirectTo: "/home"
+            })
+});
+
+app.controller('HomeController', function ($scope) {
+    $scope.home = "Home view";
+})
+
+app.controller('DocController', function ($scope) {
+    $scope.documentation = "Documentation view";
+})
+
+app.controller('AboutController', function ($scope) {
+    $scope.about = "About view";
+})
+
 app.controller('SearchCtrl', function ($scope, $http) {
     $scope.flight = {};
 
@@ -11,11 +45,13 @@ app.controller('SearchCtrl', function ($scope, $http) {
                 origin: $scope.flight.startPlace,
                 destination: $scope.flight.endPlace,
                 date: $scope.flight.startDate
-                
+
             }
-        }).then(function (response, $scope){scope.flight = response;});
+        }).then(function (response, $scope) {
+            scope.flight = response;
+        });
     };
-    
+
     $scope.search2Param = function ($scope) {
 
         $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
@@ -23,6 +59,8 @@ app.controller('SearchCtrl', function ($scope, $http) {
                 origin: $scope.flight.startPlace,
                 destination: $scope.flight.endPlace
             }
-        }).then(function (response, $scope){scope.flight = response;});
+        }).then(function (response, $scope) {
+            scope.flight = response;
+        });
     };
 });
