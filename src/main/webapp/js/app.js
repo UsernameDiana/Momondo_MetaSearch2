@@ -2,8 +2,8 @@ var app = angular.module('MomondoMetaApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
-            .when("/index", {
-                templateUrl: "views/index.html",
+            .when("/home", {
+                templateUrl: "views/home.html",
                 controller: "SearchCtrl"
             })
             .when("/documentation", {
@@ -13,9 +13,13 @@ app.config(function ($routeProvider) {
             .when("/about", {
                 templateUrl: "views/about.html",
                 controller: "AboutController"
-            }) 
+            })
+            .when("/info/:index", {
+                 templateUrl: "views/bookdetail.html",
+                 controller: "ProductController"
+            })
             .otherwise({
-                redirectTo: "/home"
+                redirectTo: "/index"
             })
 });
 
