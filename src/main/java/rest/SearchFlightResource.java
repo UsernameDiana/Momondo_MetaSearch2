@@ -31,11 +31,12 @@ public class SearchFlightResource {
     @Path("/{origin}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getWithOriginDate(@PathParam("origin") String origin, @PathParam("date") String date) {
+        
         for (String url : listOfUrls) {
             
         }
+        return null;
     }
-
 //    @GET
 //    @Path("/{origin}/{destination}/{date}/{tickets}")
 //    @Produces(MediaType.APPLICATION_JSON)
