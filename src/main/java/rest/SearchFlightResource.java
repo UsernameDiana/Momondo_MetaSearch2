@@ -35,9 +35,11 @@ public class SearchFlightResource {
 //    @Consumes(MediaType.APPLICATION_JSON)
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public String getWithOriginDate(@PathParam("origin") String origin,
-//            @PathParam("date") String date, @PathParam("tickets") int tickets) {        
+//            @PathParam("date") String date, @PathParam("tickets") int tickets) {
+//        
 //        //Using the rest to only call the method from inside getconnections
-//        getC.GetWithThree(origin, date, tickets);
+//        getC.ThreeParameterConnection();
+//        
 //        //returning the result and making it into a json object
 //        return gson.toJson(getC);
 //    }
