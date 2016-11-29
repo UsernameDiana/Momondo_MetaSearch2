@@ -76,7 +76,7 @@ public class GetConnections {
 
         } 
     
-    public List<String> ThreeParameterConnection(String origin, String date, int tickets) throws ProtocolException, IOException {
+    public String ThreeParameterConnection(String origin, String date, int tickets) throws ProtocolException, IOException {
     
             String t = Integer.toString(tickets);
             //Connection string for now to lars's airline, final product in list
@@ -104,11 +104,12 @@ public class GetConnections {
             String output;
             StringBuffer response = new StringBuffer();
             List<String> finalOutput = new ArrayList<>();
-            
+            String empty = "";
             //Storing the server inbound 
             while ((output = br.readLine()) != null) {
-                response.append(output);
+                //response.append(output);
                 finalOutput.add(output);
+                empty += output;
             }
             
             System.out.println("Output from Server .... \n");
@@ -123,7 +124,7 @@ public class GetConnections {
             for (String s : finalOutput) {
                 System.out.println(s);
         }
-            return finalOutput;
+            return empty;
 
         } 
     

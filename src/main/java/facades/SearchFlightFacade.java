@@ -20,10 +20,10 @@ public class SearchFlightFacade implements ISearchFlight {
     }
 
     @Override
-    public List<String> getWithOriginDate(String origin, String date, int tickets) throws ProtocolException, IOException {
+    public String getWithOriginDate(String origin, String date, int tickets) throws ProtocolException, IOException {
 
-        List<String> temp = conn.ThreeParameterConnection(origin, date, tickets);
-        System.out.println("FROM THE FACADE: " + temp.toString());
+        String temp = conn.ThreeParameterConnection(origin, date, tickets);
+        System.out.println("FROM THE FACADE: " + temp);
         return temp;
 
     }

@@ -43,10 +43,10 @@ public class SearchFlightResource {
     public String getWithOriginDate(@PathParam("origin") String origin,
             @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
 
-        List<String> temp = flight.getWithOriginDate(origin, date, tickets);
-        System.out.println(temp.toString());
+        String temp = flight.getWithOriginDate(origin, date, tickets);
+        System.out.println("FROM THE REST: " + temp);
         //returning the result and making it into a json object
-        return temp.toString();
+        return temp;
     }
 
     @GET
