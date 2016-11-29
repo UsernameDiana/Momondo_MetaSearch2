@@ -38,9 +38,10 @@ app.controller('SearchCtrl', function ($scope, $http) {
 
         $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
             params: {
-                origin: $scope.flight.startPlace,
-                destination: $scope.flight.endPlace,
-                date: $scope.flight.startDate
+                origin: $scope.flights.startPlace,
+                destination: $scope.flights.endPlace,
+                date: $scope.flights.startDate,
+                tickets: $scope.flights.passangers
 
             }
         }).then(function (response, $scope) {
@@ -52,8 +53,9 @@ app.controller('SearchCtrl', function ($scope, $http) {
 
         $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
             params: {
-                origin: $scope.flight.startPlace,
-                destination: $scope.flight.endPlace
+                origin: $scope.flights.startPlace,
+                destination: $scope.flights.endPlace,
+                tickets: $scope.flights.passangers
             }
         }).then(function (response, $scope) {
             scope.flight = response;

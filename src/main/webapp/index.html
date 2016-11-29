@@ -49,7 +49,7 @@
     <!-- Header -->
     
     <!--<a name="home"></a>-->
-    <div class="intro-header"  ng-controller="SearchCtrl" >
+    <div class="intro-header"  ng-controller="SearchCtrl">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -57,24 +57,23 @@
                         <div class="searchBox">  <!--Container for all Search elements !-->
                             <div class="destAndDate"> <!-- Grouping Start and End destination separately !-->
                                 <div class="row">
-                                    <input type="text" placeholder="Start Destination (ex: HEL)" id="startPlace" class="destination" ng-bind="flight.startPlace">
+                                    <input type="text" placeholder="Start Destination (ex: HEL)" id="origin" class="destination" ng-model="flights.origin">
                                 </div>
                                 <div class="row">
-                                    <input type="date" class="dates unstyled" id="startDate" ng-bind="flight.startDate" >
-                                    <input type="date" class="dates unstyled" id="endDate" ng-bind="endDate" >
+                                    <input type="date" class="dates unstyled" id="origin" ng-bind="flights.date" >
                                 </div>
                             </div>
 
                             <div class="destAndDate">
                                 <div class="row">
-                                    <input type="text" placeholder="End Destination (ex: CPH)" id="startPlace" class="destination" ng-bind="flight.endPlace">
+                                    <input type="text" placeholder="End Destination (ex: CPH)" id="origin" class="destination" ng-bind="flights.destination">
                                 </div>
                                 <div class="row">
-                                    <input type="text" class="passangers" id="startDate" placeholder="Passengers" ng-bind="flight.passengers" >
+                                    <input type="text" class="passangers" id="origin" placeholder="Passangers" ng-bind="flights.numberOfSeats" >
                                 </div>
                             </div>
 
-                            <button class="btn btn-default searchBtn" ng-click="search3param()">Search Flights</button>                
+                            <button class="btn btn-default searchBtn" ng-submit="search2Param()" >Search Flights</button>                
                         </div> <!--END SEARCHBOX !-->
                         
                     </div>
