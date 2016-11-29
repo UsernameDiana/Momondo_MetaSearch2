@@ -18,21 +18,20 @@ import javax.ws.rs.core.MediaType;
 
 @Path("search")
 public class SearchFlightResource {
-    
+
     //static SearchFlightFacade facade = new SearchFlightFacade();
     //Instance of gson for making JSON out of objects
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    
+
     //
     static ISearchFlight flight = new SearchFlightFacade();
-    
+
     @Context
     private UriInfo context;
-    
-     
-    
+
     /**
      * Retrieves representation of an instance of rest.SearchFlightResource
+     *
      * @param origin
      * @param tickets
      * @param date
@@ -43,28 +42,24 @@ public class SearchFlightResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getWithOriginDate(@PathParam("origin") String origin,
             @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
+
         List<String> temp = flight.getWithOriginDate(origin, date, tickets);
-        //Using the rest to only call the method from inside getconnections
-        
-        
+
         //returning the result and making it into a json object
-        return gson.toJson(temp);
+        return temp.toString();
     }
 
-//    @GET
-//    @Path("/{origin}/{destination}/{date}/{tickets}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public String getWithAllParam(@PathParam("origin") String origin,
-//            @PathParam("destination") String dest, @PathParam("date") String date) {
-//    }
-//    
-//    @GET
-//    @Path("/{origin}/{destination}/{tickets}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public String getWithTwoParam(@PathParam("origin") String origin, 
-//            @PathParam("destination") String destination) {
-//    }
-//
+    @GET
+    @Path("/{origin}/{destination}/{date}/{tickets}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getWithAllParam(@PathParam("origin") String origin,
+            @PathParam("destination") String dest, @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
+        List<String> temp = flight.getWithAllParam(origin, dest, date, tickets);
+
+        //returning the result and making it into a json object
+        return temp.toString();
+    }
+
 //    @GET
 //    @Path("/{flightId}")
 //    @Consumes(MediaType.APPLICATION_JSON)
