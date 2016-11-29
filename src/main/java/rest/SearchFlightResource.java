@@ -44,7 +44,7 @@ public class SearchFlightResource {
             @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
 
         List<String> temp = flight.getWithOriginDate(origin, date, tickets);
-
+        System.out.println(temp.toString());
         //returning the result and making it into a json object
         return temp.toString();
     }
