@@ -5,10 +5,7 @@ import com.google.gson.GsonBuilder;
 import connection.GetConnections;
 import java.io.IOException;
 import java.net.ProtocolException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class SearchFlightFacade implements ISearchFlight {
 
@@ -29,18 +26,18 @@ public class SearchFlightFacade implements ISearchFlight {
     }
 
     @Override
-    public List<String> getWithAllParam(String origin, String dest, String date, int tickets) throws ProtocolException, IOException {
-        List<String> result = new ArrayList<>();
-        List<String> temp = conn.FourParameterConnection(origin, dest, date, tickets);
-        for (String s : temp) {
-            result.add(s);
-        }
-        
-        return result;
+    public String getWithAllParam(String origin, String dest, String date, int tickets) throws ProtocolException, IOException {
+
+        String temp = conn.FourParameterConnection(origin, dest, date, tickets);
+
+        return temp;
     }
 
-    @Override
-    public List<String> getFlightInfo(String flightId) {
-        return null;
-    }
+//    @Override
+//    public String getFlightInfo(String flightId) {
+//        
+//        String temp = conn.viewFlightWithId(flightId);
+//        
+//        return temp;
+//    }
 }

@@ -5,8 +5,7 @@ import com.google.gson.GsonBuilder;
 import facades.ISearchFlight;
 import facades.SearchFlightFacade;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.ProtocolException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -14,29 +13,19 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
-import org.eclipse.jetty.util.ajax.JSON;
 
 @Path("search")
 public class SearchFlightResource {
 
-    //static SearchFlightFacade facade = new SearchFlightFacade();
     //Instance of gson for making JSON out of objects
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    
     static ISearchFlight flight = new SearchFlightFacade();
 
     @Context
     private UriInfo context;
 
-    /**
-     * Retrieves representation of an instance of rest.SearchFlightResource
-     *
-     * @param origin
-     * @param tickets
-     * @param date
-     * @return an instance of java.lang.String
-     */
+
     @GET
     @Path("/{origin}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -54,17 +43,21 @@ public class SearchFlightResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getWithAllParam(@PathParam("origin") String origin,
             @PathParam("destination") String dest, @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
-        List<String> temp = flight.getWithAllParam(origin, dest, date, tickets);
+        String temp = flight.getWithAllParam(origin, dest, date, tickets);
 
         //returning the result and making it into a json object
-        return temp.toString();
+        return temp;
     }
 
 //    @GET
 //    @Path("/{flightId}")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public String getFlightInfo(@PathParam("flightId")String flightId){
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String getFlightInfo(@PathParam("flightId")String flightId) throws ProtocolException{
+//    String temp = flight.getFlightInfo(flightId);
+//    
+//    return temp;
 //    }
+//    
 //    @POST
 //    @Consumes(MediaType.APPLICATION_JSON)
 //    public String makeReservation(String content) {
