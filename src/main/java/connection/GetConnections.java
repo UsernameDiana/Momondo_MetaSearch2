@@ -10,7 +10,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -77,8 +80,8 @@ public class GetConnections {
         }
     }
     
-    public String ThreeParameterConnection(String origin, String date, int tickets) {
-    try {
+    public List<String> ThreeParameterConnection(String origin, String date, int tickets) throws ProtocolException, IOException {
+    
             String t = Integer.toString(tickets);
             //Connection string for now to lars's airline, final product in list
             URL url = new URL("http://airline-plaul.rhcloud.com/api/flightinfo/" 
@@ -104,12 +107,14 @@ public class GetConnections {
 
             String output;
             StringBuffer response = new StringBuffer();
-
+            List<String> finalOutput = new ArrayList<>();
+            
             //Storing the server inbound 
             while ((output = br.readLine()) != null) {
                 response.append(output);
+                finalOutput.add(output);
             }
-
+            
             System.out.println("Output from Server .... \n");
 
             System.out.println("Result for threeparameters: " + response);
@@ -119,18 +124,12 @@ public class GetConnections {
 
             //Final return, is a string
             System.out.println("Final thing for threeparameters:" + response);
-            return response.toString();
-
-        } catch (MalformedURLException e) {
-
-            return "error occured " + e;
-
-        } catch (IOException e) {
-
-            return "error occured " + e;
-
+            for (String s : finalOutput) {
+                System.out.println(s);
         }
-    }
+            return finalOutput;
+
+        } 
     
 //    public static void main(String[] args) {
 //     ThreeParameterConnection("CPH", "2017-01-23T00:00:00.000Z", 1);   

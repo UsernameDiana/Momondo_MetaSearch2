@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import connection.GetConnections;
 import facades.ISearchFlight;
 import facades.SearchFlightFacade;
+import java.io.IOException;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -40,13 +42,13 @@ public class SearchFlightResource {
     @Path("/{origin}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getWithOriginDate(@PathParam("origin") String origin,
-            @PathParam("date") String date, @PathParam("tickets") int tickets) {
-        
+            @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
+        List<String> temp = flight.getWithOriginDate(origin, date, tickets);
         //Using the rest to only call the method from inside getconnections
-        flight.getWithOriginDate(origin, date, tickets);
+        
         
         //returning the result and making it into a json object
-        return gson.toJson(flight);
+        return gson.toJson(temp);
     }
 
 //    @GET
