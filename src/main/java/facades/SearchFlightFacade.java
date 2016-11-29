@@ -29,9 +29,13 @@ public class SearchFlightFacade implements ISearchFlight {
 
     @Override
     public List<String> getWithAllParam(String origin, String dest, String date, int tickets) throws ProtocolException, IOException {
-        
+        List<String> result = new ArrayList<>();
         List<String> temp = conn.FourParameterConnection(origin, dest, date, tickets);
-        return temp;
+        for (String s : temp) {
+            result.add(s);
+        }
+        
+        return result;
     }
 
     @Override
