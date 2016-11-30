@@ -25,7 +25,6 @@ public class SearchFlightResource {
     @Context
     private UriInfo context;
 
-
     @GET
     @Path("/{origin}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -33,7 +32,6 @@ public class SearchFlightResource {
             @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
 
         String temp = flight.getWithOriginDate(origin, date, tickets);
-        System.out.println("FROM THE REST: " + temp);
         //returning the result and making it into a json object
         return temp;
     }

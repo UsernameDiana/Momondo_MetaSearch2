@@ -6,7 +6,6 @@ import connection.GetConnections;
 import java.io.IOException;
 import java.net.ProtocolException;
 
-
 public class SearchFlightFacade implements ISearchFlight {
 
     GetConnections conn = new GetConnections();
@@ -20,7 +19,6 @@ public class SearchFlightFacade implements ISearchFlight {
     public String getWithOriginDate(String origin, String date, int tickets) throws ProtocolException, IOException {
 
         String temp = conn.ThreeParameterConnection(origin, date, tickets);
-        System.out.println("FROM THE FACADE: " + temp);
         return temp;
 
     }
@@ -29,7 +27,6 @@ public class SearchFlightFacade implements ISearchFlight {
     public String getWithAllParam(String origin, String dest, String date, int tickets) throws ProtocolException, IOException {
 
         String temp = conn.FourParameterConnection(origin, dest, date, tickets);
-
         return temp;
     }
 
