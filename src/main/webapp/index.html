@@ -57,7 +57,7 @@
                         <div class="searchBox" ng-controller="SearchCtrl">  <!--Container for all Search elements !-->
                             <div class="destAndDate"> <!-- Grouping Start and End destination separately !-->
                                 <div class="row">
-                                <input type="text" placeholder="Start Destination (ex: HEL)" id="origin" class="destination" ng-model="flight.flights.origin">
+                                <input type="text" placeholder="Start Destination (ex: HEL)" id="origin" class="destination" ng-model="flight.flights.startPlace">
                                 </div>
                                 <div class="row">
                                 <input type="date" class="dates unstyled" id="origin" ng-model="flight.flights.date" >
@@ -66,14 +66,14 @@
 
                             <div class="destAndDate">
                                 <div class="row">
-                                <input type="text" placeholder="End Destination (ex: CPH)" id="destination" class="destination" ng-model="flight.flights.destination">
+                                <input type="text" placeholder="End Destination (ex: CPH)" id="destination" class="destination" ng-bind="flight.flights.destination">
                                 </div>
                                 <div class="row">
-                                <input type="text" class="passangers" id="origin" placeholder="Passangers" ng-model="flight.flights.numberOfSeats" >
+                                <input type="text" class="passangers" id="origin" placeholder="Passangers" ng-bind="flights.flight.passangers" >
                                 </div>
                             </div>
 
-                            <button class="btn btn-default searchBtn" ng-submit="search2Param()">Search Flights</button>                
+                            <button class="btn btn-default searchBtn" ng-click="search2Param()">Search Flights</button>                
                         </div> <!--END SEARCHBOX !-->
                         
                     </div>

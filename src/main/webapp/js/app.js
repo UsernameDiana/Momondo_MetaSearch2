@@ -45,7 +45,7 @@ app.controller('SearchCtrl', function ($scope, $http) {
 
             }
         }).then(function (response, $scope) {
-            $scope.flight = response;
+            $scope.flights = response;
         });
     };
 
@@ -58,7 +58,7 @@ app.controller('SearchCtrl', function ($scope, $http) {
                 tickets: $scope.flights.passangers
             }
         }).then(function (response, $scope) {
-            scope.flight = response;
+            $scope.flights = response;
         });
     };
 });
