@@ -1,10 +1,9 @@
 <div style="margin: 10px;">
+    <h2 style="color:darkblue;">{{flights}}</h2>
     
-  <h2 style="color:darkblue;">{{flights}}</h2>
-  
-  <ul style="list-style-type: none">  
-    <li ng-repeat="viewFlight in flight">
-      <div>{{viewFlight.destination}} <a href="#/info/{{$index}}">Details</a></div>
-    </li>
-  </ul>
+    <ul style="list-style-type: none">  
+        <li ng-repeat="viewFlight in flight">
+            <div>{{viewFlight.destination}} <a href="#/info/{{$index}}">Details</a></div>
+        </li>
+    </ul>
 </div>
