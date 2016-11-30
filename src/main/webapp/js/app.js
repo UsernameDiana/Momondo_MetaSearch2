@@ -35,26 +35,21 @@ app.controller('SearchCtrl', function ($scope, $http) {
     $scope.flight = {};
 
     $scope.search4Param = function () {
-
-        $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
-            params: {
-                origin: $scope.flight.startPlace,
-                destination: $scope.flight.endPlace,
-                date: $scope.flight.startDate,
-                tickets: $scope.flight.passangers
-            }
+        $http({
+            url: 'http://airline-plaul.rhcloud.com/api/flightinfo/' + $scope.flight.startPlace
+                    + "/" + $scope.flight.date + "/" + $scope.flight.passangers
+                    + "/" + $scope.flight.endPlace,
+            method: 'GET',
         }).then(function (response, $scope) {
             $scope.flights = response;
         });
     };
 
     $scope.search3Param = function () {
-
         $http({
-            url: 'http://airline-plaul.rhcloud.com/api/flightinfo/' + $scope.flight.startPlace 
-                    + "/" + $scope.flight.date + "/" + $scope.flight.passangers,            
+            url: 'http://airline-plaul.rhcloud.com/api/flightinfo/' + $scope.flight.startPlace
+                    + "/" + $scope.flight.date + "/" + $scope.flight.passangers,
             method: 'GET',
-            
         }).then(function (response, $scope) {
             $scope.flights = response;
         });
