@@ -51,13 +51,10 @@ app.controller('SearchCtrl', function ($scope, $http) {
     $scope.search3Param = function () {
 
         $http({
-            url: 'http://airline-plaul.rhcloud.com/api/flightinfo/',
+            url: 'http://airline-plaul.rhcloud.com/api/flightinfo/' + $scope.flight.startPlace 
+                    + "/" + $scope.flight.date + "/" + $scope.flight.passangers,            
             method: 'GET',
-            params: {
-                origin: $scope.flight.startPlace,
-                destination: $scope.flight.endPlace,
-                tickets: $scope.flight.passangers
-            }
+            
         }).then(function (response, $scope) {
             $scope.flights = response;
         });
