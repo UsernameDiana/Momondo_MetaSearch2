@@ -25,11 +25,11 @@ app.config(function ($routeProvider) {
 
 app.controller('DocController', function ($scope) {
     $scope.documentation = "Documentation view";
-})
+});
 
 app.controller('AboutController', function ($scope) {
     $scope.about = "About view";
-})
+});
 
 app.controller('SearchCtrl', function ($scope, $http) {
     $scope.flight = {};
@@ -45,7 +45,7 @@ app.controller('SearchCtrl', function ($scope, $http) {
 
             }
         }).then(function (response, $scope) {
-            scope.flight = response;
+            $scope.flight = response;
         });
     };
 
