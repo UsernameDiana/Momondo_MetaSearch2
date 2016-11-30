@@ -55,5 +55,3 @@ app.controller('SearchCtrl', function ($scope, $http) {
         });
     };
 });
-//http://localhost:8084/Momondo_MetaSearch2/api/search/CPH/2017-01-23T00:00:00.000Z/1
-//
