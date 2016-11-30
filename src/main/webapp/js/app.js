@@ -15,8 +15,8 @@ app.config(function ($routeProvider) {
                 controller: "AboutController"
             })
             .when("/info/:index", {
-                 templateUrl: "views/bookdetail.html",
-                 controller: "ProductController"
+                templateUrl: "views/bookdetail.html",
+                controller: "ProductController"
             })
             .otherwise({
                 redirectTo: "/index"
@@ -34,7 +34,7 @@ app.controller('AboutController', function ($scope) {
 app.controller('SearchCtrl', function ($scope, $http) {
     $scope.flight = {};
 
-    $scope.search3Param = function () {
+    $scope.search4Param = function () {
 
         $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
             params: {
@@ -42,24 +42,26 @@ app.controller('SearchCtrl', function ($scope, $http) {
                 destination: $scope.flight.endPlace,
                 date: $scope.flight.startDate,
                 tickets: $scope.flight.passangers
-
             }
         }).then(function (response, $scope) {
-            var flights = response;
+            $scope.flights = response;
         });
     };
 
-    $scope.search2Param = function () {
+    $scope.search3Param = function () {
 
-        $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/', {
+        $http({
+            url: 'http://airline-plaul.rhcloud.com/api/flightinfo/',
+            method: 'GET',
             params: {
                 origin: $scope.flight.startPlace,
                 destination: $scope.flight.endPlace,
                 tickets: $scope.flight.passangers
             }
         }).then(function (response, $scope) {
-            var flights = response;
+            $scope.flights = response;
         });
     };
-});//http://localhost:8084/Momondo_MetaSearch2/api/search/CPH/2017-01-23T00:00:00.000Z/1
+});
+//http://localhost:8084/Momondo_MetaSearch2/api/search/CPH/2017-01-23T00:00:00.000Z/1
 //
