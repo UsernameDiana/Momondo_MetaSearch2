@@ -45,7 +45,7 @@ app.controller('SearchCtrl', function ($scope, $http) {
 
             }
         }).then(function (response, $scope) {
-            $scope.flights = response;
+            var flights = response;
         });
     };
 
@@ -58,7 +58,8 @@ app.controller('SearchCtrl', function ($scope, $http) {
                 tickets: $scope.flight.passangers
             }
         }).then(function (response, $scope) {
-            $scope.flights = response;
+            var flights = response;
         });
     };
-});
+});//http://localhost:8084/Momondo_MetaSearch2/api/search/CPH/2017-01-23T00:00:00.000Z/1
+//
