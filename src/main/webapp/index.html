@@ -89,9 +89,13 @@
         <h1>This is content</h1>
         <div>
             {{result.airline}}
+            <br/>
+            Result:
+            {{result.flights[0]}}
             <ul>
-                <li ng-repeat="r in result track by $index">{{r.flights[0].flightId}}</li>
+                <li ng-repeat="flight in flights ">{{flight.flights.flightId}} </li>
             </ul>
+                            
         </div>
 
         <!-- Footer -->

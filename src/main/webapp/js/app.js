@@ -49,7 +49,7 @@ app.controller('SearchCtrl', function ($scope, $http) {
         }).then(function (response) {  
             
             $scope.result = response.data;            
-            
+            $scope.flights = response.flights;
             console.log($scope.result);
         });
     };
