@@ -49,8 +49,9 @@ app.controller('SearchCtrl', function ($scope, $http) {
         }).then(function (response) {  
             
             $scope.result = response.data;            
-            $scope.flights = response.flights;
+            $scope.flights = response.data.flights;
             console.log($scope.result);
+            console.log($scope.flights);
         });
     };
 });

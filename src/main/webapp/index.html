@@ -86,15 +86,18 @@
         <!-- /.intro-header -->
 
         <!-- Page Content  -->
-        <h1>This is content</h1>
+        
         <div>
-            {{result.airline}}
             <br/>
-            Result:
-            {{result.flights[0]}}
-            <ul>
-                <li ng-repeat="flight in flights ">{{flight.flights.flightId}} </li>
-            </ul>
+            
+            <h1>Result:</h1>
+            <span ng-repeat="r in result track by $index" >
+                <br/>
+                <h3 ng-repeat="f in result.flights">From: {{f.origin}}, 
+                    To: {{f.destination}}, Day: {{f.date}}, 
+                    <a href="#/info/{{$index}}">Details</a></h3>
+                <br/>
+            </span>
                             
         </div>
 
