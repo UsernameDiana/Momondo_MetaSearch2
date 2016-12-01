@@ -87,7 +87,12 @@
 
         <!-- Page Content  -->
         <h1>This is content</h1>
-        <h1 ng-repeat="flight in result track by $index">Origin: {{flight.flights.flightId}} </h1>
+        <div>
+            {{result.airline}}
+            <ul>
+                <li ng-repeat="r in result track by $index">{{r.flights[0].flightId}}</li>
+            </ul>
+        </div>
 
         <!-- Footer -->
         <footer>

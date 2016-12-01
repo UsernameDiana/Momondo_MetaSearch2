@@ -48,7 +48,7 @@ app.controller('SearchCtrl', function ($scope, $http) {
                     + "/" + adjustedDate + "/" + $scope.flight.passangers            
         }).then(function (response) {  
             
-            $scope.result = JSON.stringify(response.data);            
+            $scope.result = response.data;            
             
             console.log($scope.result);
         });
