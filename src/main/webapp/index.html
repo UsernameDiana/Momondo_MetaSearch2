@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="js/app.js" type="text/javascript"></script>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 </head>
 
 <body ng-app="MomondoMetaApp" >
@@ -60,7 +61,7 @@
                                 <input type="text" placeholder="Start Destination" id="origin" class="destination" ng-model="flight.startPlace">
                                 </div>
                                 <div class="row">
-                                <input type="date" class="dates unstyled" id="origin" ng-model="flight.date" >
+                                <input type="date" class="dates unstyled" id="origin" ng-model="myDate" >
                                 </div>
                             </div>
 
@@ -83,7 +84,7 @@
         <!-- /.container -->
     </div>
     <!-- /.intro-header -->
-        <div ng-view=""></div>
+        <div ng-view></div>
     <!-- Page Content 
 
     <!-- Footer -->
