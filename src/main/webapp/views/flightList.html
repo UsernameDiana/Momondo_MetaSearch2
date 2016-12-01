@@ -1,9 +1,8 @@
-<div style="margin: 10px;">
-    <h2 style="color:darkblue;">{{flight}}</h2>
-    
-    <ul style="list-style-type: none">  
-        <li ng-repeat="viewFlight in flight">
-            <div>{{viewFlight.destination}} <a href="#/info/{{$index}}">Details</a></div>
-        </li>
-    </ul>
-</div>
+<h1>Result:</h1>
+            <span ng-repeat="r in result track by $index" >
+                <br/>
+                <h3 ng-repeat="f in result.flights">From: {{f.origin}}, 
+                    To: {{f.destination}}, Day: {{f.date}}, 
+                    <a href="#/info/{{$index}}">Details</a></h3>
+                <br/>
+            </span>

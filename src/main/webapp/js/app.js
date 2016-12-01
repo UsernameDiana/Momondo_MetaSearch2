@@ -1,22 +1,16 @@
+'use strict';
+
 var app = angular.module('MomondoMetaApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
             .when("/home", {
-                templateUrl: "views/home.html",
+                templateUrl: "index.html",
                 controller: "SearchCtrl"
-            })
-            .when("/documentation", {
-                templateUrl: "views/documentation.html",
-                controller: "DocController"
-            })
-            .when("/about", {
-                templateUrl: "views/about.html",
-                controller: "AboutController"
-            })
+            })                            
             .when("/info/:index", {
-                templateUrl: "views/bookdetail.html",
-                controller: "ProductController"
+                templateUrl: "views/viewFlightInfo.html",
+                controller: "SearchCtrl"
             })
             .otherwise({
                 redirectTo: "/index"
@@ -32,7 +26,7 @@ app.controller('AboutController', function ($scope) {
 });
 
 app.controller('SearchCtrl', function ($scope, $http) {
-    
+        
     $scope.search3Param = function () {
         
         var date;        
@@ -53,5 +47,8 @@ app.controller('SearchCtrl', function ($scope, $http) {
             console.log($scope.result);
             console.log($scope.flights);
         });
+    };
+    $scope.go = function(path) {
+        $location.path(path);
     };
 });
