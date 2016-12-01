@@ -25,7 +25,7 @@ app.controller('AboutController', function ($scope) {
     $scope.about = "About view";
 });
 
-app.controller('SearchCtrl', function ($scope, $http) {
+app.controller('SearchCtrl', function ($scope, $http, $routeParams) {
         
     $scope.search3Param = function () {
         
@@ -51,4 +51,9 @@ app.controller('SearchCtrl', function ($scope, $http) {
     $scope.go = function(path) {
         $location.path(path);
     };
+    
+    if (angular.isDefined($routeParams.index)) {
+    var i = $routeParams.index;
+    $scope.flights = $scope.flights[i];
+  }
 });
