@@ -25,7 +25,7 @@ app.controller('AboutController', function ($scope) {
     $scope.about = "About view";
 });
 
-app.controller('SearchCtrl', function ($scope, $http, $routeParams) {
+app.controller('SearchCtrl', function ($scope, $http, $routeParams, $location) {
         
     $scope.search3Param = function () {
         
@@ -35,8 +35,8 @@ app.controller('SearchCtrl', function ($scope, $http, $routeParams) {
         var adjustedDate = new Date(dateTemp).toISOString();
         
         JSON.stringify($scope.date);
-        
-        $http({
+        if ($scope.flight.endPlace === null) {
+            $http({
             method: 'GET',
             url: 'api/search/' + $scope.flight.startPlace
                     + "/" + adjustedDate + "/" + $scope.flight.passangers            
@@ -47,8 +47,25 @@ app.controller('SearchCtrl', function ($scope, $http, $routeParams) {
             console.log($scope.result);
             console.log($scope.flights);
         });
+        }
+        
+        else {
+            $http({
+            method: 'GET',
+            url: 'api/search/' + $scope.flight.startPlace + '/' + $scope.flight.destination
+                    + "/" + adjustedDate + "/" + $scope.flight.passangers            
+        }).then(function (response) {  
+            
+            $scope.result = response.data;            
+            $scope.flights = response.data.flights;
+            console.log($scope.result);
+            console.log($scope.flights);
+        });
+        }
+
+        
     };
-    $scope.go = function(path) {
+    $scope.changeView = function(path) {
         $location.path(path);
     };
     
