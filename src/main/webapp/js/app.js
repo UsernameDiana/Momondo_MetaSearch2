@@ -39,7 +39,7 @@ app.controller('SearchCtrl', function ($scope, $http, $routeParams, $location) {
         var adjustedDate = new Date(dateTemp).toISOString();
 
         JSON.stringify($scope.date);
-        if ($scope.flight.endPlace === null) {
+        if (angular.isUndefined($scope.flight.destination)) {
             $http({
                 method: 'GET',
                 url: 'api/search/' + $scope.flight.startPlace
@@ -51,7 +51,7 @@ app.controller('SearchCtrl', function ($scope, $http, $routeParams, $location) {
                 console.log($scope.result);
                 console.log($scope.flights);
             });
-        } else {
+        } else if (angular.isDefined($scope.flight.destination)) {
             $http({
                 method: 'GET',
                 url: 'api/search/' + $scope.flight.startPlace + '/' + $scope.flight.destination
