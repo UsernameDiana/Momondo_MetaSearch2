@@ -16,9 +16,16 @@ app.config(function ($routeProvider) {
                 templateUrl: "views/flightList.html",
                 controller: "SearchCtrl"
             })
+            .when("/bookflight", {
+                templateUrl: "views/bookFlight.html",
+                controller: "BookFlightCtrl"
+            })
             .otherwise({
                 redirectTo: "/index"
             });
+});
+app.controller('BookFlightCtrl', function ($scope){
+  $scope.bookFlight = "Flight booking";  
 });
 
 app.controller('DocController', function ($scope) {
