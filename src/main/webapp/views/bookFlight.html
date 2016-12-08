@@ -6,16 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>Booking flight</div>
-        <div class="row">
-            <input type="text" placeholder="Name" id="name" ng-model="passanger.name" required>
+        <div style="margin: 10px;">  
+            <h1>Booking flight:</h1>
+
+            <br/>
+            <div style="margin: 10px;" class="row">
+                <input type="text" placeholder="Name" id="name" ng-model="passanger.name" required>
+            </div>
+            <div style="margin: 10px;" class="row">
+                <input type="text" placeholder="phoneNumber" id="naphoneNumberme" ng-model="passanger.phoneNumber" required>
+            </div>
+            <br/>
+            <h4><a href="#/viewbooking">Submit</a></h4>
+            <h4><a href="#/viewbooking">View booking</a></h4>
+            <h4><a href="#/flightlist">Back to results</a></h4>
         </div>
-        <br/>
-        <div class="row">
-            <input type="text" placeholder="phoneNumber" id="naphoneNumberme" ng-model="passanger.phoneNumber" required>
-        </div>
-        <br/>
-        <h4><a href="#/viewbooking">View booking</a></h4>
-        <h4><a href="#/flightlist">Back to results</a></h4>
     </body>
 </html>
