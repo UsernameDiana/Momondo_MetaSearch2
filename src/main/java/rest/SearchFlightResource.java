@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 @Path("search")
 public class SearchFlightResource {
 
-    //Instance of gson for making JSON out of objects
+    //Instance of gson, to make JSON out of objects
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     static ISearchFlight flight = new SearchFlightFacade();
@@ -29,8 +29,8 @@ public class SearchFlightResource {
     @Path("/{origin}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getWithOriginDate(@PathParam("origin") String origin,
-            @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
-
+            @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException
+    {
         String temp = flight.getWithOriginDate(origin, date, tickets);
         //returning the result and making it into a json object
         return temp;
@@ -40,9 +40,9 @@ public class SearchFlightResource {
     @Path("/{origin}/{destination}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getWithAllParam(@PathParam("origin") String origin,
-            @PathParam("destination") String dest, @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException {
+            @PathParam("destination") String dest, @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException
+    {
         String temp = flight.getWithAllParam(origin, dest, date, tickets);
-
         //returning the result and making it into a json object
         return temp;
     }
