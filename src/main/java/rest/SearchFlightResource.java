@@ -19,7 +19,6 @@ public class SearchFlightResource {
 
     //Instance of gson, to make JSON out of objects
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
     static ISearchFlight flight = new SearchFlightFacade();
 
     @Context
@@ -32,7 +31,6 @@ public class SearchFlightResource {
             @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException
     {
         String temp = flight.getWithOriginDate(origin, date, tickets);
-        //returning the result and making it into a json object
         return temp;
     }
 
@@ -43,7 +41,6 @@ public class SearchFlightResource {
             @PathParam("destination") String dest, @PathParam("date") String date, @PathParam("tickets") int tickets) throws IOException
     {
         String temp = flight.getWithAllParam(origin, dest, date, tickets);
-        //returning the result and making it into a json object
         return temp;
     }
 
